@@ -1,0 +1,71 @@
+{
+    "Tapas": {
+        "Patatas con queso y salsa césar": {
+            "id": 86,
+            "desc": "",
+            "precio": 8.5
+        },
+        "Croquetas de boletus": {
+            "id": 87,
+            "desc": "(10 ud.)",
+            "precio": 8
+        },
+        "Champiñones con salsa verde": {
+            "id": 89,
+            "precio": 7.75
+        }
+    },
+    "Ensaladas": {
+        "Ensalada de queso de cabra": {
+            "id": 94,
+            "desc": "Lechuga, queso de cabra, pasas, mermelada de tomate y vinagre balsámico",
+            "precio": 12.5
+        }
+    },
+    "Hamburguesas": {
+        "Hamburguesa vegetal sabor barbacoa, lechuga, queso y huevo": {
+            "id": 97,
+            "precio": 8
+        },
+        "Hamburguesa vegetal con salsa roquefort, lechuga y huevo": {
+            "id": 99,
+            "precio": 8
+        }
+    },
+    "Bocadillos": {
+        "Seitan, queso, huevo, lechuga, tomate y cebolla frita": {
+            "id": 102,
+            "precio": 8
+        },
+        "Seitan, tomate, queso y pimiento verde": {
+            "id": 103,
+            "precio": 8
+        },
+        "Tofu, queso, huevo, lechuga y pimiento verde": {
+            "id": 107,
+            "precio": 7.5
+        },
+        "Tortilla francesa, tomate y queso": {
+            "id": 108,
+            "precio": 7
+        },
+        "Tortilla de patata": {
+            "id": 109,
+            "precio": 7
+        }
+    },
+    "Platos combinados": {
+        "Longaniza de tofu, tortilla francesa y patatas": {
+            "id": 110,
+            "precio": 11.5
+        },
+        "Hamburguesa vegetal, huevo y patatas": {
+            "id": 111,
+            "precio": 11
+        },
+        "Seitan a la plancha, huevo y patatas": {
+            "id": 112,
+            "precio": 11
+        }
+    }
+}
