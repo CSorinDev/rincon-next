@@ -15,7 +15,7 @@ export default function Carta() {
                         return(
                             <button
                             className={`
-                                py-1 px-4 shadow-md shadow-black rounded-full transition-all
+                                py-1 px-4 shadow-md shadow-black rounded-full transition-all whitespace-nowrap
                                 hover:bg-rincon-500 hover:text-white
                                 ${activeMenu === category && "bg-rincon-500 text-white"}
                                 `}
