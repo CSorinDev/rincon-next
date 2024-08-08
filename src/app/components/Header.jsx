@@ -66,7 +66,7 @@ export default function Header() {
                         onClick={() => setShowMenu(false)}
                         href    ={item.url}
                         className={`
-                                
+                                ${index === 0 && "mt-20 lg:mt-0"}
                                 after:content-[""] after:h-[2px] after:bg-black after:block
                                 after:hover:w-full after:mx-auto after:transition-all
                                 ${currentPath === item.url ? "after:w-full" : "after:w-0"}
