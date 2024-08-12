@@ -26,8 +26,7 @@ export default async function handler(req, res) {
             res.status(201).json({ message: 'Fila añadida con éxito', data: result });
 
         } catch (error) {
-            console.error('Error al insertar la fila en la base de datos:', error);
-            res.status(500).json({ error: 'Error interno del servidor' });
+            error.code === 'ER_DUP_ENTRY' && res.status(409).json({ error: 'Ya existe un menú para esta fecha'  });
         } finally {
             // Cierra la conexión con la base de datos
             connection.end();

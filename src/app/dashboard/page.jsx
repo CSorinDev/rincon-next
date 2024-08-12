@@ -18,14 +18,19 @@ export default function Dashboard() {
 
     const submitHandle = async (event) => {
         event.preventDefault()
-
-        const res = await fetch("/api/add-menu-del-dia", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(menuDelDia),
-        })
+        try {
+            const res = await fetch("/api/add-menu-del-dia", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(menuDelDia),
+            })
+            const data = await res.json()
+            console.log(data)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return(
