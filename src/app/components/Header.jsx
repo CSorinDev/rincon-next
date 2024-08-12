@@ -16,6 +16,7 @@ export default function Header() {
         { title: "Carta Vegetariana", url: "/carta-vegetariana"},
         { title: "Menu diario", url: "/menu-diario"},
         { title: "Contacto", url: "/contacto" },
+        { title: "Dashboard", url: "/dashboard" },
     ]
 
     return(
