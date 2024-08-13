@@ -1,30 +1,30 @@
 "use client"
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 
 export default function Carta() {
-    const [carta, setCarta] = useState([]);
-    const [activeMenu, setActiveMenu] = useState("Tapas");
-    const [categories, setCategories] = useState([]);
+    const [carta, setCarta] = useState([])
+    const [activeMenu, setActiveMenu] = useState("Tapas")
+    const [categories, setCategories] = useState([])
 
     useEffect(() => {
         const fetchMenu = async () => {
             try {
-                const res = await fetch('/api/carta');
+                const res = await fetch('/api/carta')
                 if (!res.ok) {
-                    throw new Error('Error al obtener el menú');
+                    throw new Error('Error al obtener el menú')
                 }
-                const data = await res.json();
-                setCarta(data);
-                const categories = Array.from(new Set(data.map(item => item.categoria)));
-                setCategories(categories);
+                const data = await res.json()
+                setCarta(data)
+                const categories = Array.from(new Set(data.map(item => item.categoria)))
+                setCategories(categories)
             } catch (error) {
-                console.error('Error fetching menu:', error);
+                console.error('Error fetching menu:', error)
             }
-        };
+        }
 
-        fetchMenu();
-    }, []);
+        fetchMenu()
+    }, [])
 
     return(
         <>
