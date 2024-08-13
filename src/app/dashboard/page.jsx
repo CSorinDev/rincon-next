@@ -1,69 +1,35 @@
 "use client"
 
-import { useState } from "react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 export default function Dashboard() {
-    const [menuDelDia, setMenuDelDia] = useState({
-            fecha: "",
-            precio: "",
-            "Primero 1": "",
-            "Primero 2": "",
-            "Primero 3": "",
-            "Primero 4": "",
-            "Segundo 1": "",
-            "Segundo 2": "",
-            "Segundo 3": "",
-            "Segundo 4": "",
-    })
+    const menu = [
+        { title: "Carta" , url: "/dashboard/carta"},
+        { title: "Carta Vegetariana" , url: "/dashboard/carta-vegetariana"},
+        { title: "Menu del dia" , url: "/dashboard/menu-del-dia"},
+    ]
 
-    const submitHandle = async (event) => {
-        event.preventDefault()
-        try {
-            const res = await fetch("/api/add-menu-del-dia", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(menuDelDia),
-            })
-            const data = await res.json()
-            console.log(data)
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    const currentPath = usePathname()
 
     return(
-        <form
-        onSubmit={submitHandle}
-        >
-            <input 
-            onChange={(e) => setMenuDelDia({...menuDelDia, fecha: e.target.value})}
-            type="date" 
-            />
+        <section className="flex flex-col text-center">
+            <h1>
+                ¿Qué quieres modificar?
+            </h1>
             {
-                ["Primero 1", "Primero 2", "Primero 3", "Primero 4", "Segundo 1", "Segundo 2", "Segundo 3", "Segundo 4"].map((plato, index) => {
+                menu.map((menu, index) => {
                     return(
-                        <input
+                        <Link 
+                        className="border py-2 px-4"
+                        href={menu.url} 
                         key={index}
-                        onChange={(e) => setMenuDelDia({...menuDelDia, [plato]: e.target.value})}
-                        type="text" 
-                        placeholder={plato}
-                        />
+                        >
+                            {menu.title}
+                        </Link>
                     )
                 })
             }
-            <input 
-            onChange={(e) => setMenuDelDia({...menuDelDia, precio: e.target.value})}
-            type="number"
-            step={0.05}
-            placeholder="Precio"
-            />
-            <button
-            onClick={submitHandle}
-            >
-                Añadir
-            </button>
-        </form>
+        </section>
     )
 }
