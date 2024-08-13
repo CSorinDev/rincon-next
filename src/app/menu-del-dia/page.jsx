@@ -29,6 +29,7 @@ export default function Page() {
         className='flex flex-col text-center'
         >
             {
+                menu &&
                 menu.map(({fecha, precio, primero1, primero2, primero3, primero4, segundo1, segundo2, segundo3, segundo4}, index) => {
                     const newFecha = `${new Date(fecha).getFullYear()}-${new Date(fecha).getMonth() + 1}-${new Date(fecha).getDate()}`
                     if (newFecha === today) {

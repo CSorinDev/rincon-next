@@ -30,6 +30,7 @@ export default function Carta() {
         <>
             <header className="flex gap-4 p-4 overflow-x-auto no-bar lg:justify-center">
                 {
+                    categories &&
                     categories.map((category, index) => (
                         <button
                             onClick={() => setActiveMenu(category)}
@@ -47,6 +48,7 @@ export default function Carta() {
             </header>
             <section>
                 {
+                    carta &&
                     carta.filter(item => item.categoria === activeMenu).map(({ numero, plato, ingredientes, precio }, index) => (
                         <article 
                             className="flex justify-between items-center py-4" 

@@ -42,6 +42,7 @@ export default function CartaVegetariana() {
             </header>
             <section>
                 {
+                    carta &&
                     carta.filter(item => item.categoria === activeMenu).map(({ numero, plato, ingredientes, precio }, index) => (
                         <article 
                             className="flex justify-between items-center py-4" 
