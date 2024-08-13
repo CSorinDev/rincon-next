@@ -25,17 +25,33 @@ export default function Page() {
     const today = `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`
 
     return(
-        <section>
+        <section
+        className='flex flex-col text-center'
+        >
             {
                 menu.map(({fecha, precio, primero1, primero2, primero3, primero4, segundo1, segundo2, segundo3, segundo4}, index) => {
                     const newFecha = `${new Date(fecha).getFullYear()}-${new Date(fecha).getMonth() + 1}-${new Date(fecha).getDate()}`
                     if (newFecha === today) {
                         return(
                             <div key={index}>
-                                <h2>{new Date(fecha).toLocaleDateString()}</h2>
-                                <h2>Menú del día</h2>
-                                <div>
-                                    <h3>Primeros:</h3>
+                                <h2
+                                className='text-3xl font-bold'
+                                >
+                                    Menú del día
+                                </h2>
+                                    <p
+                                    className='text-sm text-gray-500'
+                                    >
+                                        {new Date(fecha).toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+                                    </p>
+                                <div
+                                className='my-8'
+                                >
+                                    <h3
+                                    className='text-xl my-4 font-semibold'
+                                    >
+                                        Primeros
+                                    </h3>
                                     {[primero1, primero2, primero3, primero4].map((primero, index) => {
                                         return(
                                             <p
@@ -46,12 +62,30 @@ export default function Page() {
                                         )
                                     })}
                                 </div>
-                                <div>
-                                    <h3>Segundos</h3>
+                                <div
+                                className='my-8'
+                                >
+                                    <h3
+                                    className='text-xl my-4 font-semibold'
+                                    >
+                                        Segundos
+                                    </h3>
+                                    {[segundo1, segundo2, segundo3, segundo4].map((segundo, index) => {
+                                        return(
+                                            <p
+                                            key={index}
+                                            >
+                                                {segundo}
+                                            </p>
+                                        )
+                                    })}
                                 </div>
-                                <p>Segundo: {segundo1}, {segundo2}, {segundo3}, {segundo4}</p>
-                                <p>Incluye la primera bebida + postre o café</p>
-                                <p>Precio: {precio}</p>
+                                <p
+                                className=' italic text-gray-500 my-8'
+                                >Incluye una bebida + café o postre</p>
+                                <p
+                                className='text-xl text-end'
+                                >Precio: {precio.toFixed(2).replace(".", ",")} €</p>
                             </div>
                         )
                     }
