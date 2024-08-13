@@ -11,7 +11,7 @@ const config = {
 export default async function handler(req, res) {
     try {
         const connection = await mysql.createConnection(config);
-        const [rows] = await connection.query('SELECT * FROM menu_del_dia');
+        const [rows] = await connection.query('SELECT * FROM carta_vegetariana');
         connection.end()
         res.status(200).json(rows);
     } catch (error) {

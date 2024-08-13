@@ -1,25 +1,25 @@
 "use client"
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
 export default function Page() {
-    const [menu, setMenu] = useState([]);
+    const [menu, setMenu] = useState([])
 
     useEffect(() => {
         const fetchMenu = async () => {
             try {
-                const res = await fetch('/api/menu-del-dia');
+                const res = await fetch('/api/menu-del-dia')
                 if (!res.ok) {
-                    throw new Error('Error al obtener el menú');
+                    throw new Error('Error al obtener el menú')
                 }
-                const data = await res.json();
-                setMenu(data);
+                const data = await res.json()
+                setMenu(data)
             } catch (error) {
-                console.error('Error fetching menu:', error);
+                console.error('Error fetching menu:', error)
             }
-        };
+        }
 
-        fetchMenu();
+        fetchMenu()
     }, [])
 
     const today = `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`
